@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  order-service:
+    image: mibghost/order-service:0.0.1-SNAPSHOT
+    ports:
+      - "8090:8080"
+    depends_on:
+      - rabbitmq
+
+  email-service:
+    image: mibghost/email-service:0.0.1-SNAPSHOT
+    ports:
+      - "8091:8080"
+    depends_on:
+      - rabbitmq
+
+  stock-service:
+    image: mibghost/stock-service:0.0.1-SNAPSHOT
+    ports:
+      - "8092:8080"
+    depends_on:
+      - rabbitmq
+
+  rabbitmq:
+    image: rabbitmq:4.0.3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"

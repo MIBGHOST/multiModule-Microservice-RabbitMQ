@@ -1,0 +1,9 @@
+
+spring:
+  application:
+    name: email-service
+  rabbitmq:
+    email:
+      name: email-queue
+server:
+  port: 8082

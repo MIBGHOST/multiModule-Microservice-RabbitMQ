@@ -1,0 +1,16 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: order-service
+  rabbitmq:
+    queue:
+      name: order-queue
+    topicExchange:
+      name: order-exchange
+    routing:
+      key: order-routing-key
+    email:
+      name: email-queue
+    email-routing:
+      key: email-routing-key
