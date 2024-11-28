@@ -2,5 +2,11 @@ spring:
   application:
     name: stock-service
   rabbitmq:
+    exchange:
+      name: order-exchange
     queue:
-      name: order-queue
+      name: stock-queue
+    routing:
+      key: stock-routing-key
+    reply-to-queue:
+      name: reply-to-queue

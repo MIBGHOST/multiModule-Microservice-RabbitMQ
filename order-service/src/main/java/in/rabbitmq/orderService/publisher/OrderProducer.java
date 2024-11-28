@@ -7,6 +7,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class OrderProducer {
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderProducer.class);
@@ -26,7 +27,6 @@ public class OrderProducer {
 
     public void send(OrderEvent orderEvent) {
         LOGGER.info("Sending order: {}", orderEvent);
-
         //send an order event to order queue
         rabbitTemplate.convertAndSend(ORDER_EXCHANGE, ORDER_ROUTING_KEY, orderEvent);
 

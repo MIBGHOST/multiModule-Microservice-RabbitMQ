@@ -20,7 +20,7 @@ public class OrderController {
     @PostMapping("/orders")
     public ResponseEntity<String> placeOrder(@RequestBody Order order) {
         order.setOrderId(UUID.randomUUID().toString());
-        OrderEvent orderEvent = new OrderEvent("PENDING", "order is in peding status", order);
+        OrderEvent orderEvent = new OrderEvent("PENDING", "order is in pending status", order);
         orderProducer.send(orderEvent);
         return ResponseEntity.ok("order placed with orderId: " + order.getOrderId());
     }

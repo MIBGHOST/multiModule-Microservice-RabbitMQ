@@ -5,12 +5,16 @@ spring:
     name: order-service
   rabbitmq:
     queue:
-      name: order-queue
+      name: stock-queue
     topicExchange:
       name: order-exchange
     routing:
-      key: order-routing-key
+      key: stock-routing-key
     email:
       name: email-queue
     email-routing:
       key: email-routing-key
+    reply-to-queue:
+      name: reply-to-queue
+    reply-routing:
+      key: reply-routing-key

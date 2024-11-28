@@ -3,7 +3,11 @@ spring:
   application:
     name: email-service
   rabbitmq:
+    exchange:
+      name: order-exchange
     email:
       name: email-queue
+    email-routing:
+      key: email-routing-key
 server:
   port: 8082
